@@ -7,7 +7,9 @@ refreshMostrador();
 starter();
 
 function refreshMostrador(){
-    if (gameOver) {return;}
+    if (gameOver) {
+        console.log("gameOver")
+        return;}
 
     if (turn == player1) {
         var player = document.querySelectorAll("div#mostrador img")[0];
@@ -25,7 +27,9 @@ function starter(){
     for (let i = 0; i < boxs.length; i++) {
         boxs[i].addEventListener("click", function(){
             
-            if (gameOver) {return;};
+            if (gameOver) {
+                console.log("gameOver")
+                return;};
 
             if (this.getElementsByTagName('img').length == 0) {
                 if (turn == player1){
@@ -41,8 +45,49 @@ function starter(){
                     turn = player1;
                 }
                 refreshMostrador();
+                verificaVencedor();
             }
         })
               
+    }
+}
+
+function verificaVencedor(){
+    var pos = {
+        a1:'', a2:'', a3:'',
+        b1:'', b2:'', b3:'',
+        c1:'', c2:'', c3:''
+    };
+
+    for (p in pos) {
+        pos[p]=document.getElementById(p).getAttribute("played");
+    }
+    
+    if (((pos['a1'] == pos['b1'] && pos['b1'] == pos['c1']) ||
+        (pos['a1'] == pos['a2'] && pos['a2'] == pos['a3']) ||
+        (pos['a1'] == pos['b2'] && pos['b2'] == pos['c3'])) && (pos['a1'] != '')
+    )
+    {
+        vencedor = pos['a1']
+        console.log(vencedor+" venceu");
+        return gameOver=true
+    }
+    else if (((pos['b2'] == pos['b1'] && pos['b2'] == pos['b3']) ||
+            (pos['b2'] == pos['a3'] && pos['a3'] == pos['c1']) ||
+            (pos['b2'] == pos['a2'] && pos['a2'] == pos['c2'])) && (pos['b2'] != '')
+    )
+    {
+        vencedor = pos['b2']
+        console.log(vencedor+" venceu");
+        return gameOver=true
+    }
+    else if (
+            ((pos['c3'] == pos['c2'] && pos['c3'] == pos['c1']) ||
+            (pos['c3'] == pos['a3'] && pos['c3'] == pos['b3'])) && pos['c3' != '']
+    )
+    {
+        vencedor = pos['c3']
+        console.log(vencedor+" venceu");
+        return gameOver=true
     }
 }
