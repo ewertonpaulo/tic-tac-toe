@@ -19,9 +19,6 @@ html{
     background-size: cover;
 }
 
-.box {
-    /* background-color: rgb(71, 179, 179); */
-}
 img{
     display: block;
     margin-left: auto;
@@ -30,5 +27,9 @@ img{
 p{
     display: block;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
+}
+
+.text{
+    font-family: 'Kosugi Maru', sans-serif;
 }

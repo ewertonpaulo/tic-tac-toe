@@ -14,11 +14,11 @@ function refreshMostrador() {
 
     if (turn == player1) {
         var player = document.querySelectorAll("div#mostrador img")[0];
-        player.setAttribute("src", "img/bolsomito.png");
+        player.setAttribute("src", "img/Bolsomito.png");
     }
     else {
         var player = document.querySelectorAll("div#mostrador img")[0];
-        player.setAttribute("src", "img/lula.jpg");
+        player.setAttribute("src", "img/lula.png");
     }
 
 }
@@ -36,14 +36,14 @@ function starter() {
             if (this.getElementsByTagName('img').length == 0) {
                 if (turn == player1) {
                     console.log("jslajfsfs")
-                    this.innerHTML = "<img src='img/bolsomito.png' border='0' height='90'>";
+                    this.innerHTML = "<img src='img/Bolsomito.png' border='0' height='90'>";
                     this.setAttribute("played", player1);
                     turn = player2;
                     soundBolsonaroPlay()
                 }
                 else {
 
-                    this.innerHTML = "<img src='img/lula.jpg' border='0' height='90' widith='40'>";
+                    this.innerHTML = "<img src='img/lula.png' border='0' height='90' widith='40'>";
                     this.setAttribute("played", player2);
                     turn = player1;
                     soundLulaPlay()
