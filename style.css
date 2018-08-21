@@ -1,20 +1,34 @@
+html{
+    background-color:  rgb(71, 179, 179);
+}
 .bodyGame {
     display: grid;
-    grid-template-columns: 1fr 300px 1fr;
+    grid-template-columns: 300px;
     grid-auto-rows: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
 }
 
 .game {
-    width: 100%;
-    height: 100%;
-    align-content: center;
-    
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    
+    background-image: url("img/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .box {
-    border: 2px solid #000000;
+    /* background-color: rgb(71, 179, 179); */
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+p{
+    display: block;
+    margin-left: auto;
+    margin-right: auto
 }
