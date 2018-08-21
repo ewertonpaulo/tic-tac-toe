@@ -36,7 +36,7 @@ function starter() {
             if (this.getElementsByTagName('img').length == 0) {
                 if (turn == player1) {
                     console.log("jslajfsfs")
-                    this.innerHTML = "<img src='img/bolsomito.png' border='0' height='90'>";
+                    this.innerHTML = "<img src='img/Bolsomito.png' border='0' height='90'>";
                     this.setAttribute("played", player1);
                     turn = player2;
                     soundBolsonaroPlay()
