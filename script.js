@@ -14,7 +14,7 @@ function refreshMostrador() {
 
     if (turn == player1) {
         var player = document.querySelectorAll("div#mostrador img")[0];
-        player.setAttribute("src", "img/bolsomito.png");
+        player.setAttribute("src", "img/Bolsomito.png");
     }
     else {
         var player = document.querySelectorAll("div#mostrador img")[0];
