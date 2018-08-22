@@ -53,7 +53,7 @@ function starter() {
                 console.log("gameOver")
                 return;
             };
-            if (this.getElementsByTagName('img')) {
+            if (this.getElementsByTagName("img")) {
                 if (turn == player1) {
                     this.childNodes[0].setAttribute("src", "img/Bolsomito.png");
                     this.setAttribute("played", player1);
