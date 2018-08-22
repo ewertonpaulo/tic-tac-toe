@@ -2,7 +2,6 @@ const player1 = "Bolsonaro";
 const player2 = "Lula";
 var turn = player1;
 var gameOver = false;
-// var bottom = document.getElementsByClassName("reset");
 
 refreshMostrador();
 starter();
@@ -12,7 +11,6 @@ function refreshMostrador() {
         console.log("gameOver")
         return;
     }
-
     if (turn == player1) {
         var player = document.querySelectorAll("div#mostrador img")[0];
         player.setAttribute("src", "img/Bolsomito.png");
@@ -21,26 +19,17 @@ function refreshMostrador() {
         var player = document.querySelectorAll("div#mostrador img")[0];
         player.setAttribute("src", "img/lula.png");
     }
-
 }
 
 function reset() {
     gameOver = false;
     turn = player1;
     refreshMostrador();
-    var divs = [
-        "a1", "a2", "a3",
-        "b1", "b2", "b3",
-        "c1", "c2", "c3",
-    ]
+    box = document.getElementsByClassName('box');
     var img = document.getElementsByClassName('imgbox');
     for (i in divs) {
-        console.log(divs)
-        console.log(divs[i])
-        box = document.getElementById(divs[i]);
         box.setAttribute('played', '');
         img[i].setAttribute("src", "")
-        
     }
 }
 
@@ -48,60 +37,48 @@ function starter() {
     var boxs = document.getElementsByClassName("box");
     for (let i = 0; i < boxs.length; i++) {
         boxs[i].addEventListener("click", function () {
-
             if (gameOver) {
                 console.log("gameOver")
                 return;
             };
             if (this.getElementsByTagName('img')) {
-                if (turn == player1) {
-                    this.childNodes[0].setAttribute("src", "img/Bolsomito.png");
-                    this.setAttribute("played", player1);
-                    turn = player2;
-                    soundBolsonaroPlay()
+                if (this.childNodes[0].getAttribute("src") == "") {
+                    if (turn == player1) {
+                        this.childNodes[0].setAttribute("src", "img/Bolsomito.png");
+                        this.setAttribute("played", player1);
+                        turn = player2;
+                        soundBolsonaroPlay()
+                    }
+                    else {
+                        this.childNodes[0].setAttribute("src", "img/lula.png");
+                        this.setAttribute("played", player2);
+                        turn = player1;
+                        soundLulaPlay()
+                    }
+                    refreshMostrador();
+                    verificaVencedor();
                 }
-                else {
-                    this.childNodes[0].setAttribute("src", "img/lula.png");
-                    this.setAttribute("played", player2);
-                    turn = player1;
-                    soundLulaPlay()
-                }
-                refreshMostrador();
-                verificaVencedor();
             }
         })
-
     }
 }
-
 function verificaVencedor() {
+    const win = [
+        ['a1', 'a2', 'a3'], ['b1', 'b2', 'b3'],
+        ['c1', 'c2', 'c3'], ['a1', 'b1', 'c1'], 
+        ['a2', 'b2', 'c2'], ['a3', 'b3', 'c3'],
+        ['a1', 'b2', 'c3'], ['a3', 'b2', 'c1']
+    ];
     var pos = {
         a1: '', a2: '', a3: '',
         b1: '', b2: '', b3: '',
         c1: '', c2: '', c3: ''
     };
-
     for (p in pos) {
         pos[p] = document.getElementById(p).getAttribute("played");
     }
-
-    if (((pos['a1'] == pos['b1'] && pos['b1'] == pos['c1']) ||
-        (pos['a1'] == pos['a2'] && pos['a2'] == pos['a3']) ||
-        (pos['a1'] == pos['b2'] && pos['b2'] == pos['c3'])) && (pos['a1'] != '')
-    ) {
-        winner(pos['a1'])
-    }
-    else if (((pos['b2'] == pos['b1'] && pos['b2'] == pos['b3']) ||
-        (pos['b2'] == pos['a3'] && pos['a3'] == pos['c1']) ||
-        (pos['b2'] == pos['a2'] && pos['a2'] == pos['c2'])) && (pos['b2'] != '')
-    ) {
-        winner(pos['b2'])
-    }
-    else if (
-        ((pos['c3'] == pos['c2'] && pos['c3'] == pos['c1']) ||
-            (pos['c3'] == pos['a3'] && pos['c3'] == pos['b3'])) && pos['c3' != '']
-    ) {
-        winner(pos['c3'])
+    for (i in win) {
+        if (pos[win[i][0]] != '' && (pos[win[i][0]] == pos[win[i][1]] && pos[win[i][1]] == pos[win[i][2]])){winner(pos[win[i][0]])}
     }
 }
 
