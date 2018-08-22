@@ -2,6 +2,7 @@ const player1 = "Bolsonaro";
 const player2 = "Lula";
 var turn = player1;
 var gameOver = false;
+// var bottom = document.getElementsByClassName("reset");
 
 refreshMostrador();
 starter();
@@ -23,6 +24,26 @@ function refreshMostrador() {
 
 }
 
+function reset() {
+    gameOver = false;
+    turn = player1;
+    refreshMostrador();
+    var divs = [
+        "a1", "a2", "a3",
+        "b1", "b2", "b3",
+        "c1", "c2", "c3",
+    ]
+    var img = document.getElementsByClassName('imgbox');
+    for (i in divs) {
+        console.log(divs)
+        console.log(divs[i])
+        box = document.getElementById(divs[i]);
+        box.setAttribute('played', '');
+        img[i].setAttribute("src", "")
+        
+    }
+}
+
 function starter() {
     var boxs = document.getElementsByClassName("box");
     for (let i = 0; i < boxs.length; i++) {
@@ -32,18 +53,15 @@ function starter() {
                 console.log("gameOver")
                 return;
             };
-
-            if (this.getElementsByTagName('img').length == 0) {
+            if (this.getElementsByTagName('img')) {
                 if (turn == player1) {
-                    console.log("jslajfsfs")
-                    this.innerHTML = "<img class='imgbox' src='img/Bolsomito.png' border='0' height='90'>";
+                    this.childNodes[0].setAttribute("src", "img/Bolsomito.png");
                     this.setAttribute("played", player1);
                     turn = player2;
                     soundBolsonaroPlay()
                 }
                 else {
-
-                    this.innerHTML = "<img class='imgbox' src='img/lula.png' border='0' height='90' widith='40'>";
+                    this.childNodes[0].setAttribute("src", "img/lula.png");
                     this.setAttribute("played", player2);
                     turn = player1;
                     soundLulaPlay()
