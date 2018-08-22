@@ -25,11 +25,11 @@ function reset() {
     gameOver = false;
     turn = player1;
     refreshMostrador();
-    box = document.getElementsByClassName('box');
+    var box = document.getElementsByClassName('box');
     var img = document.getElementsByClassName('imgbox');
-    for (i in divs) {
-        box.setAttribute('played', '');
-        img[i].setAttribute("src", "")
+    for (let i = 0; i < 9; i++) {
+        box[i].setAttribute("played", "");
+        img[i].setAttribute("src", "");
     }
 }
 

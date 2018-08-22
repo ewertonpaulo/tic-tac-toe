@@ -1,5 +1,5 @@
 html{
-    background-color:  rgb(71, 179, 179);
+    background-image: url("../img/background.png")
 }
 .bodyGame {
     display: grid;
@@ -14,7 +14,6 @@ html{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    /* background-image: url("img/background.png"); */
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -32,6 +31,7 @@ p{
 
 .text{
     font-family: 'Kosugi Maru', sans-serif;
+    color: azure;
 }
 .imgbox{
     display: block;
