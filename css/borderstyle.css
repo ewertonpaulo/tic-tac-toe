@@ -26,9 +26,6 @@
 #c1{
     border-right: var(--border-default);
 }
-#c2{
-    /* border-left: var(--border-default); */
-}
 #c3{
     border-left: var(--border-default);
 }
