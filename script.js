@@ -36,14 +36,14 @@ function starter() {
             if (this.getElementsByTagName('img').length == 0) {
                 if (turn == player1) {
                     console.log("jslajfsfs")
-                    this.innerHTML = "<img src='img/Bolsomito.png' border='0' height='90'>";
+                    this.innerHTML = "<img class='imgbox' src='img/Bolsomito.png' border='0' height='90'>";
                     this.setAttribute("played", player1);
                     turn = player2;
                     soundBolsonaroPlay()
                 }
                 else {
 
-                    this.innerHTML = "<img src='img/lula.png' border='0' height='90' widith='40'>";
+                    this.innerHTML = "<img class='imgbox' src='img/lula.png' border='0' height='90' widith='40'>";
                     this.setAttribute("played", player2);
                     turn = player1;
                     soundLulaPlay()
