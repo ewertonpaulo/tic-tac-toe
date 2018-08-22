@@ -31,7 +31,8 @@ p{
 
 .text{
     font-family: 'Kosugi Maru', sans-serif;
-    color: azure;
+    font-size: 40px;
+    color: rgb(228, 253, 230);
 }
 .imgbox{
     display: block;

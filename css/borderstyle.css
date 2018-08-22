@@ -1,5 +1,5 @@
 :root{
-    --border: 10px solid #ffffff;
+    --border: 12px solid rgb(228, 253, 230);;
 }
 #a1{
     border-right: var(--border);
