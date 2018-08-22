@@ -1,0 +1,36 @@
+html{
+    background-color:  rgb(71, 179, 179);
+}
+.bodyGame {
+    display: grid;
+    grid-template-columns: 500px;
+    grid-auto-rows: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+}
+
+.game {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    /* background-image: url("img/background.png"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}
+p{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text{
+    font-family: 'Kosugi Maru', sans-serif;
+}

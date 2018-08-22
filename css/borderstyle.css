@@ -1,0 +1,34 @@
+:root{
+    --border-default: 10px solid #3a533f;
+}
+#a1{
+    border-right: var(--border-default);
+    border-bottom: var(--border-default);
+}
+#a2{
+    border-bottom: var(--border-default);
+}
+#a3{
+    border-left: var(--border-default);
+    border-bottom: var(--border-default);
+}
+#b1{
+    border-right: var(--border-default);
+    border-bottom: var(--border-default);
+}
+#b2{
+    border-bottom: var(--border-default);
+}
+#b3{
+    border-left: var(--border-default);
+    border-bottom: var(--border-default);
+}
+#c1{
+    border-right: var(--border-default);
+}
+#c2{
+    /* border-left: var(--border-default); */
+}
+#c3{
+    border-left: var(--border-default);
+}
