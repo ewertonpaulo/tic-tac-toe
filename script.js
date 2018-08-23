@@ -1,10 +1,21 @@
 const player1 = "Bolsonaro";
 const player2 = "Lula";
 var turn = player1;
+var contador = 0;
 var gameOver = false;
 
 refreshMostrador();
 starter();
+function empate(contador) {
+    if (contador == 9) {
+        var empate = document.getElementById('mostra')
+        empate.innerHTML = "Jogo empatado!"
+        setTimeout(function(){
+            empate.innerHTML = ""
+        },2000)
+        return gameOver = true
+    }
+}
 
 function refreshMostrador() {
     if (gameOver) {
@@ -42,21 +53,27 @@ function starter() {
                 return;
             };
             if (this.getElementsByTagName('img')) {
+
                 if (this.childNodes[0].getAttribute("src") == "") {
                     if (turn == player1) {
+                        console.log(this.childNodes[0]);
                         this.childNodes[0].setAttribute("src", "img/Bolsomito.png");
                         this.setAttribute("played", player1);
                         turn = player2;
                         soundBolsonaroPlay()
+                        contador++
+                        console.log(contador)
                     }
                     else {
                         this.childNodes[0].setAttribute("src", "img/lula.png");
                         this.setAttribute("played", player2);
                         turn = player1;
                         soundLulaPlay()
+                        contador++
                     }
                     refreshMostrador();
                     verificaVencedor();
+                    empate(contador)
                 }
             }
         })
@@ -65,7 +82,7 @@ function starter() {
 function verificaVencedor() {
     const win = [
         ['a1', 'a2', 'a3'], ['b1', 'b2', 'b3'],
-        ['c1', 'c2', 'c3'], ['a1', 'b1', 'c1'], 
+        ['c1', 'c2', 'c3'], ['a1', 'b1', 'c1'],
         ['a2', 'b2', 'c2'], ['a3', 'b3', 'c3'],
         ['a1', 'b2', 'c3'], ['a3', 'b2', 'c1']
     ];
@@ -78,7 +95,7 @@ function verificaVencedor() {
         pos[p] = document.getElementById(p).getAttribute("played");
     }
     for (i in win) {
-        if (pos[win[i][0]] != '' && (pos[win[i][0]] == pos[win[i][1]] && pos[win[i][1]] == pos[win[i][2]])){winner(pos[win[i][0]])}
+        if (pos[win[i][0]] != '' && (pos[win[i][0]] == pos[win[i][1]] && pos[win[i][1]] == pos[win[i][2]])) { winner(pos[win[i][0]]); setTimeout(function(){reset();},1500) }
     }
 }
 
@@ -101,7 +118,12 @@ function soundLulaPlay() {
 }
 
 function winner(winner) {
-    console.log(winner + " venceu");
+    var ganha = document.getElementById('mostra')
+    ganha.innerHTML = "Ganhador é " + winner
+    contador=0;
+    setTimeout(function(){
+        ganha.innerHTML = ""
+    },2000)
     return gameOver = true
 }
 

@@ -1,5 +1,7 @@
-html{
-    background-image: url("../img/background.png")
+html,body{
+    background-color: #262526;
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat;
 }
 .bodyGame {
     display: grid;
@@ -8,13 +10,19 @@ html{
     margin-left: auto;
     margin-right: auto;
     width: 500px;
+    background-color: #2625265e
 }
 
 .game {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    background-repeat: no-repeat;
+    height: 90%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
     background-size: cover;
 }
 
@@ -23,20 +31,25 @@ img{
     margin-left: auto;
     margin-right: auto;
 }
+
 p{
-    display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
 .text{
     font-family: 'Kosugi Maru', sans-serif;
-    font-size: 40px;
+    font-size: 30px;
+    font-style: oblique;
     color: rgb(228, 253, 230);
 }
+h1 {
+    background-color: #2625265e;
+    border-bottom: #ffffff79
+}
 .imgbox{
-    display: block;
+    /* display: block; */
     margin-left: auto;
     margin-right: auto;
-    margin-top: 40px;
+    margin-top: 30px;
 }
