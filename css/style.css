@@ -1,6 +1,7 @@
 html,body{
-    background-color: #262526;
+    background-color: #000000;
     background-image: url("../img/background.png");
+    background-size: 100%;
     background-repeat: no-repeat;
 }
 .bodyGame {
@@ -45,7 +46,6 @@ p{
 }
 h1 {
     background-color: #2625265e;
-    border-bottom: #ffffff79
 }
 .imgbox{
     /* display: block; */
